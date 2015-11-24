@@ -1,6 +1,6 @@
 # pong
 
-This is a version of Pong created with Python and Pygame.
+Pygame version of the arcade classic Snake
 
 Requirements:
 
