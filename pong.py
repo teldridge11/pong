@@ -4,23 +4,26 @@ import random
 
 pygame.init()
 
+# Game Display
 displayHeight = 600
 displayWidth = 800
 gameDisplay = pygame.display.set_mode((displayWidth,displayHeight))
 pygame.display.set_caption('Pong')
 
+# Clock
 clock = pygame.time.Clock()
 FPS = 30
 
+# Colors
 white = (255,255,255)
 black = (0,0,0)
 
+# Fonts
 smallfont = pygame.font.SysFont("comicsansms", 25)
 medfont = pygame.font.SysFont("comicsansms", 50)
 largefont = pygame.font.SysFont("comicsansms", 85)
 
-lineWidth = 5
-
+# Ball properties
 ballSize = 10
 ballX = int(displayWidth/2)
 ballY = int(displayHeight/2)
@@ -28,21 +31,23 @@ ballSpeed = 10
 changeBallX = -ballSpeed
 changeBallY = -ballSpeed
 
+# Draw shapes
+lineWidth = 5
 pygame.draw.circle(gameDisplay, white, (ballX,ballY), ballSize)
 pygame.draw.line(gameDisplay,white,(int(displayWidth/2),displayHeight),(int(displayWidth/2),0),lineWidth)
 
-currentPlayerScore = 0
-currentComputerScore = 0
-
+# Paddle properties
 paddleHeight = 80
 paddleSpeed = 15
-
 playerPaddleY = (displayHeight/2)-(paddleHeight/2)
 playerPaddleX = 10
 changePlayerPaddleY = 0
-
 computerPaddleY = (displayHeight/2)-(paddleHeight/2)
 computerPaddleX = 790
+
+# Scores
+currentPlayerScore = 0
+currentComputerScore = 0
 
 def score(playerScore,computerScore):
     playerText = medfont.render(str(playerScore), True, white)
@@ -50,12 +55,14 @@ def score(playerScore,computerScore):
     gameDisplay.blit(playerText, [displayWidth/2-50,5])
     gameDisplay.blit(computerText, [displayWidth/2+20,5])
 
+# Draw Paddles
 def playerPaddle(playerY):
     pygame.draw.line(gameDisplay,white,(playerPaddleX,playerY),(playerPaddleX,playerY+paddleHeight),lineWidth)
 
 def computerPaddle(computerY):
     pygame.draw.line(gameDisplay,white,(computerPaddleX,computerY),(computerPaddleX,computerY+paddleHeight),lineWidth) 
 
+# Draw Ball
 def ballDraw(ballXPosition,ballYPosition):
     pygame.draw.circle(gameDisplay, white, (ballXPosition,ballYPosition), ballSize)
 
