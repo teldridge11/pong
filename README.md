@@ -1,6 +1,6 @@
 # pong
 
-Pygame version of the arcade classic Snake
+Pygame version of the arcade classic Pong
 
 Requirements:
 
