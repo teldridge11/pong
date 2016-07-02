@@ -2,6 +2,5 @@
 
 Pygame version of the arcade classic Pong
 
-Requirements:
-
+##Requirements
 Python, Pygame, Time, Random
